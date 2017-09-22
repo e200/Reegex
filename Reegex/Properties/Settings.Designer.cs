@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Fregex.Properties {
+namespace Reegex.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

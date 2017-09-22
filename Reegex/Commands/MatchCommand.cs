@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Fregex.Commands
+namespace Reegex.Commands
 {
     class MatchCommand : ICommand
     {

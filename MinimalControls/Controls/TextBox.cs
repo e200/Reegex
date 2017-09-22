@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MinimalControls
+namespace MinimalControls.Controls
 {
     /// <summary>
     /// Siga os passos 1a ou 1b e depois 2 para usar esse controle personalizado em um arquivo XAML.
@@ -44,11 +44,11 @@ namespace MinimalControls
     ///     <MyNamespace:CustomControl1/>
     ///
     /// </summary>
-    public class CustomControl1 : Control
+    public class TextBox : System.Windows.Controls.TextBox
     {
-        static CustomControl1()
+        static TextBox()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomControl1), new FrameworkPropertyMetadata(typeof(CustomControl1)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(TextBox), new FrameworkPropertyMetadata(typeof(TextBox)));
         }
     }
 }

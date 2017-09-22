@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1C7D010B-5C2C-4AC2-A298-CD91510D8C9B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Fregex</RootNamespace>
-    <AssemblyName>Fregex</AssemblyName>
+    <RootNamespace>Reegex</RootNamespace>
+    <AssemblyName>Reegex</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -63,8 +63,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\MatchCommand.cs" />
-    <Compile Include="Converters\EmptyToBoolConverter.cs" />
-    <Compile Include="ViewModel\FregexViewModel.cs" />
+    <Compile Include="Converters\StringToBoolConverter.cs" />
+    <Compile Include="ViewModel\ReegexViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -99,6 +99,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MinimalControls\MinimalControls.csproj">
+      <Project>{546b6c89-28ee-4be8-9078-611954ff1ecd}</Project>
+      <Name>MinimalControls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Fregex.Converters
+namespace Reegex.Converters
 {
     /// <summary>
     /// Converts string to bool

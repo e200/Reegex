@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Fregex
+namespace Reegex
 {
     /// <summary>
     /// Interação lógica para App.xaml

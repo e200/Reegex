@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Fregex.View
+namespace Reegex.View
 {
     /// <summary>
     /// Interação lógica para MainView.xaml

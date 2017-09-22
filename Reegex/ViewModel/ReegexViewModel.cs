@@ -1,4 +1,4 @@
-﻿using Fregex.Commands;
+﻿using Reegex.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Fregex.ViewModel
+namespace Reegex.ViewModel
 {
-    public class FregexViewModel : ViewModelBase
+    public class ReegexViewModel : ViewModelBase
     {
         #region Commands
 
@@ -23,7 +23,7 @@ namespace Fregex.ViewModel
         string pattern;
         string expression;
 
-        bool canHighlighted = true;
+        bool canHighlighted;
         bool isCaseSensitivity;
         bool isGlobal;
 
@@ -119,7 +119,7 @@ namespace Fregex.ViewModel
         /// <summary>
         /// Fregex constructor.
         /// </summary>
-        public FregexViewModel()
+        public ReegexViewModel()
         {
             MatchCommand = new MatchCommand(Match);
         }
@@ -131,7 +131,7 @@ namespace Fregex.ViewModel
         {
             IsMatched = Regex.IsMatch(Expression, Pattern, CanIgnoreCase());
 
-            MessageBox.Show(IsMatched.ToString());
+            MessageBox.Show(IsMatched ? ":)" : ":(");
         }
 
         private RegexOptions CanIgnoreCase()
