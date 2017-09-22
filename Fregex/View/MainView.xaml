@@ -1,0 +1,97 @@
+﻿<Window x:Class="Fregex.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fregex"
+        xmlns:viewModel="clr-namespace:Fregex.ViewModel"
+        xmlns:converter="clr-namespace:Fregex.Converters"
+        mc:Ignorable="d"
+        Title="Testador para expressões regulares"
+        Height="350"
+        Width="600">
+    <Window.Resources>
+        <viewModel:FregexViewModel x:Key="fegexViewModel"/>
+        <converter:StringToBoolConverter x:Key="stringToBoolConverter"/>
+        
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#FFEDEDED"/>
+            <Setter Property="BorderThickness" Value="0 0 0 1"/>
+            <Setter Property="BorderBrush" Value="#FFE5E5E5"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderBrush" Value="#CCC"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5 0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="#CCC"/>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="BorderBrush" Value="#CCC"/>
+            <Setter Property="Background" Value="#FFDDDDDD"/>
+        </Style>
+        <Style TargetType="{x:Type RichTextBox}">
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource fegexViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border SnapsToDevicePixels="True">
+            <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="auto"/>
+                    
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width=".5*"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBox Text="{Binding Pattern, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Grid VerticalAlignment="Center" Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox Content="Colorir correspondências" IsChecked="{Binding CanHighlighted}" Grid.ColumnSpan="2"/>
+                    <CheckBox Content="Sensível" IsChecked="{Binding IsCaseSensitivity}" Grid.Row="1"/>
+                    <CheckBox Content="Global" IsChecked="{Binding IsGlobal}" Grid.Column="1" Grid.Row="1"/>
+                </Grid>
+
+                <Button Content="Testar"
+                        Command="{Binding MatchCommand}"
+                        IsEnabled="{Binding Pattern, Converter={StaticResource stringToBoolConverter}}"
+                        IsDefault="True"
+                        Grid.Column="4"/>
+            </Grid>
+        </Border>
+
+        <Grid Margin="15" Grid.Row="1">
+            <RichTextBox x:Name="rtbMatches">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="{Binding Expression}"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </Grid>
+    </Grid>
+</Window>
