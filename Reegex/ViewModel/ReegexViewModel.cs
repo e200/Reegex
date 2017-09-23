@@ -131,6 +131,8 @@ namespace Reegex.ViewModel
         {
             IsMatched = Regex.IsMatch(Expression, Pattern, CanIgnoreCase());
 
+            Regex.
+
             MessageBox.Show(IsMatched ? ":)" : ":(");
         }
 
