@@ -1,0 +1,9 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MinimalControls;component/Styles/Colors.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/MinimalControls;component/Styles/TextBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/MinimalControls;component/Styles/CheckBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/MinimalControls;component/Styles/Button.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
