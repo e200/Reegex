@@ -28,6 +28,7 @@ namespace Reegex.ViewModel
         bool isGlobal;
 
         bool isMatched;
+        private bool isValidPattern;
 
         #endregion
 
@@ -114,6 +115,20 @@ namespace Reegex.ViewModel
             }
         }
 
+        public bool IsValidPattern
+        {
+            get => isValidPattern;
+            set
+            {
+                if (value != isValidPattern)
+                {
+                    isValidPattern = IsValidRegex(Pattern);
+
+                    notifyPropertyChanged(nameof(IsValidPattern));
+                }
+            }
+        }
+
         #endregion
 
         /// <summary>
@@ -131,8 +146,6 @@ namespace Reegex.ViewModel
         {
             IsMatched = Regex.IsMatch(Expression, Pattern, CanIgnoreCase());
 
-            Regex.
-
             MessageBox.Show(IsMatched ? ":)" : ":(");
         }
 
@@ -142,6 +155,22 @@ namespace Reegex.ViewModel
                 return RegexOptions.IgnoreCase;
 
             return RegexOptions.None;
+        }
+
+        private static bool IsValidRegex(string pattern)
+        {
+            if (string.IsNullOrEmpty(pattern)) return false;
+
+            try
+            {
+                Regex.Match("", pattern);
+            }
+            catch (ArgumentException)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
